@@ -12,7 +12,7 @@ export default function Login() {
     async function submit(e) {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8000/api/user/login", {
+            await axios.post("https://expense-traker-app.onrender.com/api/user/login", {
                 email: email,
                 password: password,
                 headers: {

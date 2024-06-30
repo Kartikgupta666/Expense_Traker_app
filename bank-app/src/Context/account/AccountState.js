@@ -4,7 +4,7 @@ import AccountContext from "./AccountContext";
 import axios from 'axios'
 const AccountState = (props) => {
 
-  const Host = "http://localhost:8000"
+  const Host = "https://expense-traker-app.onrender.com"
   const AccountTransaction = []
   const [account, setAccount] = useState(AccountTransaction)
   const [user, setuser] = useState("")

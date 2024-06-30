@@ -14,7 +14,7 @@ export default function Signup() {
         e.preventDefault();
 
         try {
-            await axios.post("http://localhost:8000/api/user/signup", {
+            await axios.post("https://expense-traker-app.onrender.com/api/user/signup", {
                 name: name,
                 email: email,
                 password: password,
