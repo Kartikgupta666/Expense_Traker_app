@@ -40,8 +40,8 @@ export default function DashBoard() {
                             <div className="card-body">
                                 <h5 className="card-title">Account Balance</h5>
                                 <p className="card-text"> RS.{user.accountbalance}/- </p>
-                                <h5 className="card-title">Account Number</h5>
-                                <p className="card-text"> {user.accountnumber} </p>
+                                {/* <h5 className="card-title">Account Number</h5>
+                                <p className="card-text"> {user.accountnumber} </p> */}
                             </div>
                         </div>
                         <Link className='btn btn-warning' to='/FundTransfer' >FUND TRANSFER</Link>

@@ -22,19 +22,19 @@ const Depositmoney = () => {
         <>
             <br /><br />
             <br /><br />
-            <div class="container mt-5 px-5 ">
+            <div className="container mt-5 px-5 ">
                 <form action="POST">
-                    <div class="form-group">
-                        <label for="note">Note</label>
-                        <input type="text" class="form-control" id="note" name="note" placeholder="ENTER A NOTE HERE" onChange={onchange} />
+                    <div className="form-group">
+                        <label htmlFor="note">Note</label>
+                        <input type="text" className="form-control" id="note" name="note" placeholder="ENTER A NOTE HERE" onChange={onchange} />
                     </div>
                     <br/>
-                    <div class="form-group">
-                        <label for="money">Money</label>
-                        <input type="number" class="form-control" id="money" name="money" onChange={onchange} />
+                    <div className="form-group">
+                        <label htmlFor="money">Money</label>
+                        <input type="number" className="form-control" id="money" name="money" onChange={onchange} />
                     </div>
                     <br/>
-                    <button type="button" class="btn btn-primary " onClick={submit}>Send</button>
+                    <button type="button" className="btn btn-primary " onClick={submit}>Send</button>
                 </form>
             </div>
         </>

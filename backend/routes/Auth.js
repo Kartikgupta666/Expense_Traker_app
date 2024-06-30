@@ -48,10 +48,9 @@ router.post('/signup', [
             // console.log(Token)
 
             // finding account number of the recently saved query and send to user for further login process 
-            const accountNumber = await User.findOne({ email: email })
             const success = true
             const authToken = jwt.sign(Token, JWT_SECRET);
-            res.status(201).json({ success, authToken, accountnumber: accountNumber.accountnumber });
+            res.status(201).json({ success, authToken });
 
         }
     }
@@ -61,7 +60,7 @@ router.post('/signup', [
 
 //route 2 :  login an user using account no. and password using post method 
 router.post('/login', [
-    body("accountNumber", "account number must be 12 digits").isLength({ max: 12 }),
+    body("email", "enter an valid email").isEmail(),
     body("password", "password cannot be blank").exists(),
 ], async (req, res) => {
 
@@ -72,8 +71,8 @@ router.post('/login', [
         return res.status(400).json({ errors: result.array([]) });
     }
     try {
-        const { accountnumber, password } = req.body;
-        const user = await User.findOne({ accountnumber: accountnumber })
+        const { email, password } = req.body;
+        const user = await User.findOne({ email: email })
         if (user) {
             // bcrypt.compare is inbuilt function in bcrypt package to comapre password hash from all existing hashes
             const comparepass = await bcrypt.compare(password, user.password);

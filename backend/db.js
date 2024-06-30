@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 function connectToMongo() {
 
-    mongoose.connect(`mongodb+srv://kartikgangil:health_app@cluster.zicryzz.mongodb.net/`)
+    mongoose.connect(`mongodb+srv://kartikgangil:00000000@expensetrakerdb.2jerzb3.mongodb.net/`)
         .then(() => {
             console.log("db connected")
         })
