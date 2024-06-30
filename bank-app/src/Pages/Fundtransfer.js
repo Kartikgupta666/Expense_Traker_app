@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AccountContext from '../Context/account/AccountContext'
 import { useNavigate } from 'react-router-dom'
 import Spinner from './spinner'
@@ -9,6 +9,11 @@ export default function Fundtransfer() {
     const { withdrawMoney } = AccountTransaction
     const [account, setAccount] = useState({ note: "", money: "" })
     const [loading, SetLoading] = useState(false)
+    const [DisableButton, setDisableButton] = useState(true)
+
+    useEffect(()=>{
+        setDisableButton(!account.money , !account.note)
+    },[account])
 
     const submit = async () => {
         SetLoading(true)
@@ -22,7 +27,7 @@ export default function Fundtransfer() {
     return (
         <>
             <br /><br />
-           <Spinner loading={loading}/>
+            <Spinner loading={loading} />
             <div className="container mt-5 px-5">
                 <form action="POST">
                     <div className="form-group">
@@ -35,7 +40,7 @@ export default function Fundtransfer() {
                         <input type="number" className="form-control" id="money" name="money" onChange={onchange} />
                     </div>
                     <br />
-                    <button type="button" className="btn btn-primary d-flex justify-content-center" onClick={submit}>Send</button>
+                    <button type="button" className="btn btn-primary d-flex justify-content-center" onClick={submit} disabled={DisableButton} >Send</button>
                 </form>
             </div>
         </>

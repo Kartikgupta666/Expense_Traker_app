@@ -15,7 +15,7 @@ const Depositmoney = () => {
 
 
     useEffect(() => {
-        setDisableButton(account.money || account.note)
+        setDisableButton(!account.money || !account.note)
     }, [account])
 
     const submit = async () => {
