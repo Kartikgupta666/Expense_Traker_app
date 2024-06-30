@@ -45,10 +45,10 @@ export default function DashBoard() {
                             </div>
                         </div>
                         <div className="d-flex justify-content-center mb-3">
-                        <Link className='btn btn-warning' to='/FundTransfer' >FUND TRANSFER</Link>
+                        <Link className='btn btn-warning' to='/FundTransfer' >Expense</Link>
                         &nbsp;
                         &nbsp;
-                        <Link className='btn btn-success' to='/deposit' >Deposit Money</Link>
+                        <Link className='btn btn-success' to='/deposit' >Set Total Balance</Link>
                         </div>
 
                     </div>

@@ -1,16 +1,19 @@
 import React, { useContext, useState } from 'react'
 import AccountContext from '../Context/account/AccountContext'
 import { useNavigate } from 'react-router-dom'
+import Spinner from './spinner'
 
 export default function Fundtransfer() {
     const history = useNavigate()
     const AccountTransaction = useContext(AccountContext)
     const { withdrawMoney } = AccountTransaction
     const [account, setAccount] = useState({ note: "", money: "" })
-
+    const [loading, SetLoading] = useState(false)
 
     const submit = async () => {
+        SetLoading(true)
         await withdrawMoney(account.note, account.money)
+        SetLoading(false)
         history('/dashboard')
     }
     const onchange = (e) => {
@@ -19,7 +22,7 @@ export default function Fundtransfer() {
     return (
         <>
             <br /><br />
-            <br /><br />
+           <Spinner loading={loading}/>
             <div className="container mt-5 px-5">
                 <form action="POST">
                     <div className="form-group">

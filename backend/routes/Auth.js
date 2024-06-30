@@ -82,7 +82,8 @@ router.post('/login', [
 
             if (!comparepass) {
                 success = false
-                return res.status(400).json({ success, error: "please try to login with correct credentials" });
+               
+              return res.json({ success, error: "Please try to login with correct credentials" });
             }
 
             else {
