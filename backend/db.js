@@ -1,8 +1,13 @@
+require('dotenv').config()
 const mongoose = require("mongoose")
-
 function connectToMongo() {
+    const databaseUrl = process.env.DATABASE_URL;
 
-    mongoose.connect(`mongodb+srv://kartikgangil:00000000@expensetrakerdb.2jerzb3.mongodb.net/`)
+    if (!databaseUrl) {
+        console.error("DATABASE_URL is not defined in the .env file.");
+        process.exit(1); // Exit the process with an error code
+    }
+    mongoose.connect(databaseUrl)
         .then(() => {
             console.log("db connected")
         })
