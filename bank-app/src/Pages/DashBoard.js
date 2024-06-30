@@ -30,7 +30,7 @@ export default function DashBoard() {
 
     return (
         <>
-            <br /><br />
+            
             <div className="container my-4 mt-5">
                 <div className="row">
                     {/* Account Summary */}
@@ -44,10 +44,12 @@ export default function DashBoard() {
                                 <p className="card-text"> {user.accountnumber} </p> */}
                             </div>
                         </div>
+                        <div className="d-flex justify-content-center mb-3">
                         <Link className='btn btn-warning' to='/FundTransfer' >FUND TRANSFER</Link>
                         &nbsp;
                         &nbsp;
                         <Link className='btn btn-success' to='/deposit' >Deposit Money</Link>
+                        </div>
 
                     </div>
 
