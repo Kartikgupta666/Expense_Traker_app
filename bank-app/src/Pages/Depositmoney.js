@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import axios from 'axios'
 import AccountContext from '../Context/account/AccountContext';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,12 @@ const Depositmoney = () => {
     const { addMoney } = AccountTransaction
     const [account, setAccount] = useState({ note: "", money: "" })
     const [loading, setLoading] = useState(false)
+    const [disableButton, setDisableButton] = useState(true)
 
+
+    useEffect(() => {
+        setDisableButton(account.money || account.note)
+    }, [account])
 
     const submit = async () => {
         setLoading(true)
@@ -38,7 +43,8 @@ const Depositmoney = () => {
                         <input type="number" className="form-control" id="money" name="money" onChange={onchange} />
                     </div>
                     <br />
-                    <button type="button" className="btn btn-primary " onClick={submit}>Send</button>
+
+                    <button type="button" className="btn btn-primary " onClick={submit} disabled = {disableButton}>Send</button>
                 </form>
             </div>
         </>
