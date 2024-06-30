@@ -16,7 +16,7 @@ router.get('/accountdetails', fetchuser, async (req, res) => {
 
 router.post('/depositmoney', [
     body("money", "money is not less than 1rs").isInt({ min: 1 }),
-    body("money", "money is not less than 1rs").exists()
+
 ], fetchuser, async (req, res) => {
 
     try {
@@ -31,7 +31,7 @@ router.post('/depositmoney', [
         const id = req.user.id;
 
         const USER = await User.findById(id) //use to find name of the object
-        
+
         const mny = parseInt(money)
         USER.accountbalance += mny;
         await USER.save();
@@ -62,7 +62,6 @@ router.post('/depositmoney', [
 
 router.post('/Withdrawl', [
     body("money", "money is not less than 1rs").isInt({ min: 1 }),
-    body("money", "money is not less than 1rs").exists()
 
 ], fetchuser, async (req, res) => {
 
@@ -74,7 +73,7 @@ router.post('/Withdrawl', [
         if (!result.isEmpty()) {
 
             res.status(400).json({ errors: result.array([]) });
-            
+
         }
         const id = req.user.id;
 
